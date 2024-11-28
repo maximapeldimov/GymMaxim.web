@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using GymMaxim.Data;
 using GymMaxim.Models;
 
-namespace GymMaxim.Pages.Payments
+namespace GymMaxim.Pages.Categories
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,11 @@ namespace GymMaxim.Pages.Payments
 
         public IActionResult OnGet()
         {
-        ViewData["EnrollmentID"] = new SelectList(_context.Enrollments, "EnrollmentID", "EnrollmentID");
             return Page();
         }
 
         [BindProperty]
-        public Payment Payment { get; set; } = default!;
+        public Category Category { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -36,7 +35,7 @@ namespace GymMaxim.Pages.Payments
                 return Page();
             }
 
-            _context.Payments.Add(Payment);
+            _context.Categories.Add(Category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

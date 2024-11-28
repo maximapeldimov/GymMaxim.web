@@ -21,6 +21,7 @@ namespace GymMaxim.Pages.Customers
 
         public IActionResult OnGet()
         {
+        ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "Name");
             return Page();
         }
 

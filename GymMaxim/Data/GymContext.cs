@@ -14,7 +14,7 @@ namespace GymMaxim.Data
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
-        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
     }
 }

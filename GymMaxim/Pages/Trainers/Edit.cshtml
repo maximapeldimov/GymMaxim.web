@@ -15,19 +15,54 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Trainer.TrainerID" />
             <div class="form-group">
-                <label asp-for="Trainer.TrainerFirstName" class="control-label"></label>
-                <input asp-for="Trainer.TrainerFirstName" class="form-control" />
-                <span asp-validation-for="Trainer.TrainerFirstName" class="text-danger"></span>
+                <label asp-for="Trainer.FirstName" class="control-label"></label>
+                <input asp-for="Trainer.FirstName" class="form-control" />
+                <span asp-validation-for="Trainer.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Trainer.TrainerLastName" class="control-label"></label>
-                <input asp-for="Trainer.TrainerLastName" class="form-control" />
-                <span asp-validation-for="Trainer.TrainerLastName" class="text-danger"></span>
+                <label asp-for="Trainer.LastName" class="control-label"></label>
+                <input asp-for="Trainer.LastName" class="form-control" />
+                <span asp-validation-for="Trainer.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.IdentityCard" class="control-label"></label>
+                <input asp-for="Trainer.IdentityCard" class="form-control" />
+                <span asp-validation-for="Trainer.IdentityCard" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Trainer.Gender" class="control-label"></label>
-                <select asp-for="Trainer.Gender" class="form-control"></select>
+                <input asp-for="Trainer.Gender" class="form-control" />
                 <span asp-validation-for="Trainer.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.Email" class="control-label"></label>
+                <input asp-for="Trainer.Email" class="form-control" />
+                <span asp-validation-for="Trainer.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.PhoneNumber" class="control-label"></label>
+                <input asp-for="Trainer.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Trainer.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.DateOfBirth" class="control-label"></label>
+                <input asp-for="Trainer.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Trainer.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.City" class="control-label"></label>
+                <input asp-for="Trainer.City" class="form-control" />
+                <span asp-validation-for="Trainer.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.Street" class="control-label"></label>
+                <input asp-for="Trainer.Street" class="form-control" />
+                <span asp-validation-for="Trainer.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.HomeNumber" class="control-label"></label>
+                <input asp-for="Trainer.HomeNumber" class="form-control" />
+                <span asp-validation-for="Trainer.HomeNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

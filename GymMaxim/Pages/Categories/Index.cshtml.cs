@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GymMaxim.Data;
 using GymMaxim.Models;
 
-namespace GymMaxim.Pages.Payments
+namespace GymMaxim.Pages.Categories
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,11 @@ namespace GymMaxim.Pages.Payments
             _context = context;
         }
 
-        public IList<Payment> Payment { get;set; } = default!;
+        public IList<Category> Category { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Payment = await _context.Payments
-                .Include(p => p.Enrollment).ToListAsync();
+            Category = await _context.Categories.ToListAsync();
         }
     }
 }

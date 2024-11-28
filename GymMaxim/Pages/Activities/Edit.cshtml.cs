@@ -36,7 +36,7 @@ namespace GymMaxim.Pages.Activities
                 return NotFound();
             }
             Activity = activity;
-           ViewData["TrainerID"] = new SelectList(_context.Trainers, "TrainerID", "TrainerID");
+           ViewData["TrainerID"] = new SelectList(_context.Trainers, "TrainerID", "FirstName");
             return Page();
         }
 

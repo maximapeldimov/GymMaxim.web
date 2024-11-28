@@ -36,8 +36,8 @@ namespace GymMaxim.Pages.Enrollments
                 return NotFound();
             }
             Enrollment = enrollment;
-           ViewData["ActivityID"] = new SelectList(_context.Activities, "ActivityID", "ActivityID");
-           ViewData["CustomerID"] = new SelectList(_context.Customers, "CustomerID", "CustomerID");
+            ViewData["ActivityID"] = new SelectList(_context.Activities, "ActivityID", "ActivityName");
+            ViewData["CustomerID"] = new SelectList(_context.Customers, "CustomerID", "IdentityCard");
             return Page();
         }
 

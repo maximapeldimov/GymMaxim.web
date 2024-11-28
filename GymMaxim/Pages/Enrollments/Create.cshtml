@@ -14,11 +14,21 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Enrollment.ActivityID" class="control-label"></label>
+                <label asp-for="Enrollment.Date" class="control-label"></label>
+                <input asp-for="Enrollment.Date" class="form-control" />
+                <span asp-validation-for="Enrollment.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollment.TotalPrice" class="control-label"></label>
+                <input asp-for="Enrollment.TotalPrice" class="form-control" />
+                <span asp-validation-for="Enrollment.TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enrollment.Activity" class="control-label"></label>
                 <select asp-for="Enrollment.ActivityID" class ="form-control" asp-items="ViewBag.ActivityID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Enrollment.CustomerID" class="control-label"></label>
+                <label asp-for="Enrollment.Customer" class="control-label"></label>
                 <select asp-for="Enrollment.CustomerID" class ="form-control" asp-items="ViewBag.CustomerID"></select>
             </div>
             <div class="form-group">

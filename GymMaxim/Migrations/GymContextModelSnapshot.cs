@@ -17,7 +17,7 @@ namespace GymMaxim.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -33,14 +33,42 @@ namespace GymMaxim.Migrations
                     b.Property<string>("ActivityName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ActivityType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
                     b.Property<int>("TrainerID")
                         .HasColumnType("int");
+
+                    b.Property<string>("WorkDays")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ActivityID");
 
                     b.HasIndex("TrainerID");
 
                     b.ToTable("Activities");
+                });
+
+            modelBuilder.Entity("GymMaxim.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryID"));
+
+                    b.Property<int>("DiscountAmount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CategoryID");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("GymMaxim.Models.Customer", b =>
@@ -51,21 +79,42 @@ namespace GymMaxim.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerID"));
 
-                    b.Property<int?>("ActivityID")
+                    b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
-                    b.Property<string>("CustomerFirstName")
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CustomerLastName")
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Gender")
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Gender")
                         .HasColumnType("int");
+
+                    b.Property<int>("HomeNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IdentityCard")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CustomerID");
 
-                    b.HasIndex("ActivityID");
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Customers");
                 });
@@ -84,6 +133,12 @@ namespace GymMaxim.Migrations
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
                     b.HasKey("EnrollmentID");
 
                     b.HasIndex("ActivityID");
@@ -91,33 +146,6 @@ namespace GymMaxim.Migrations
                     b.HasIndex("CustomerID");
 
                     b.ToTable("Enrollments");
-                });
-
-            modelBuilder.Entity("GymMaxim.Models.Payment", b =>
-                {
-                    b.Property<int>("PaymentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentID"));
-
-                    b.Property<int>("EnrollmentID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PaymentType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("amount")
-                        .HasColumnType("int");
-
-                    b.HasKey("PaymentID");
-
-                    b.HasIndex("EnrollmentID");
-
-                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("GymMaxim.Models.Trainer", b =>
@@ -128,13 +156,34 @@ namespace GymMaxim.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TrainerID"));
 
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TrainerFirstName")
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TrainerLastName")
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HomeNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IdentityCard")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TrainerID");
@@ -155,9 +204,13 @@ namespace GymMaxim.Migrations
 
             modelBuilder.Entity("GymMaxim.Models.Customer", b =>
                 {
-                    b.HasOne("GymMaxim.Models.Activity", null)
-                        .WithMany("Customers")
-                        .HasForeignKey("ActivityID");
+                    b.HasOne("GymMaxim.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("GymMaxim.Models.Enrollment", b =>
@@ -177,22 +230,6 @@ namespace GymMaxim.Migrations
                     b.Navigation("Activity");
 
                     b.Navigation("Customer");
-                });
-
-            modelBuilder.Entity("GymMaxim.Models.Payment", b =>
-                {
-                    b.HasOne("GymMaxim.Models.Enrollment", "Enrollment")
-                        .WithMany()
-                        .HasForeignKey("EnrollmentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Enrollment");
-                });
-
-            modelBuilder.Entity("GymMaxim.Models.Activity", b =>
-                {
-                    b.Navigation("Customers");
                 });
 #pragma warning restore 612, 618
         }

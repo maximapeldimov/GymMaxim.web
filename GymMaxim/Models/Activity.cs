@@ -6,9 +6,12 @@ namespace GymMaxim.Models
     {
         public int ActivityID { get; set; }
         public string ActivityName { get; set; }
+        public string ActivityType { get; set; }
+        public double Price { get; set; }
+        public string WorkDays { get; set; }
         public int TrainerID { get; set; }
 
         public Trainer Trainer { get; set; }
-        public ICollection<Customer> Customers { get; set; }
+        
     }
 }

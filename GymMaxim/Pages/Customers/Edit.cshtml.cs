@@ -36,6 +36,7 @@ namespace GymMaxim.Pages.Customers
                 return NotFound();
             }
             Customer = customer;
+           ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "Name");
             return Page();
         }
 

@@ -21,7 +21,7 @@ namespace GymMaxim.Pages.Activities
 
         public IActionResult OnGet()
         {
-        ViewData["TrainerID"] = new SelectList(_context.Trainers, "TrainerID", "TrainerID");
+        ViewData["TrainerID"] = new SelectList(_context.Trainers, "TrainerID", "FirstName");
             return Page();
         }
 

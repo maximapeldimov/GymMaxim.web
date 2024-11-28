@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>מאמנים</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -14,13 +14,34 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Trainer[0].TrainerFirstName)
+                @Html.DisplayNameFor(model => model.Trainer[0].FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Trainer[0].TrainerLastName)
+                @Html.DisplayNameFor(model => model.Trainer[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].IdentityCard)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Trainer[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].Street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].HomeNumber)
             </th>
             <th></th>
         </tr>
@@ -29,13 +50,34 @@
 @foreach (var item in Model.Trainer) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TrainerFirstName)
+                @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TrainerLastName)
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentityCard)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeNumber)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.TrainerID">Edit</a> |

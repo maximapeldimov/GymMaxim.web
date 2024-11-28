@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using GymMaxim.Data;
 using GymMaxim.Models;
 
-namespace GymMaxim.Pages.Payments
+namespace GymMaxim.Pages.Categories
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace GymMaxim.Pages.Payments
         }
 
         [BindProperty]
-        public Payment Payment { get; set; } = default!;
+        public Category Category { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,13 +30,12 @@ namespace GymMaxim.Pages.Payments
                 return NotFound();
             }
 
-            var payment =  await _context.Payments.FirstOrDefaultAsync(m => m.PaymentID == id);
-            if (payment == null)
+            var category =  await _context.Categories.FirstOrDefaultAsync(m => m.CategoryID == id);
+            if (category == null)
             {
                 return NotFound();
             }
-            Payment = payment;
-           ViewData["EnrollmentID"] = new SelectList(_context.Enrollments, "EnrollmentID", "EnrollmentID");
+            Category = category;
             return Page();
         }
 
@@ -49,7 +48,7 @@ namespace GymMaxim.Pages.Payments
                 return Page();
             }
 
-            _context.Attach(Payment).State = EntityState.Modified;
+            _context.Attach(Category).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +56,7 @@ namespace GymMaxim.Pages.Payments
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PaymentExists(Payment.PaymentID))
+                if (!CategoryExists(Category.CategoryID))
                 {
                     return NotFound();
                 }
@@ -70,9 +69,9 @@ namespace GymMaxim.Pages.Payments
             return RedirectToPage("./Index");
         }
 
-        private bool PaymentExists(int id)
+        private bool CategoryExists(int id)
         {
-            return _context.Payments.Any(e => e.PaymentID == id);
+            return _context.Categories.Any(e => e.CategoryID == id);
         }
     }
 }

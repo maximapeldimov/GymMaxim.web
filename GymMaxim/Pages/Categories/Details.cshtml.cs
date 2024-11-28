@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GymMaxim.Data;
 using GymMaxim.Models;
 
-namespace GymMaxim.Pages.Payments
+namespace GymMaxim.Pages.Categories
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace GymMaxim.Pages.Payments
             _context = context;
         }
 
-        public Payment Payment { get; set; } = default!;
+        public Category Category { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,14 +28,14 @@ namespace GymMaxim.Pages.Payments
                 return NotFound();
             }
 
-            var payment = await _context.Payments.FirstOrDefaultAsync(m => m.PaymentID == id);
-            if (payment == null)
+            var category = await _context.Categories.FirstOrDefaultAsync(m => m.CategoryID == id);
+            if (category == null)
             {
                 return NotFound();
             }
             else
             {
-                Payment = payment;
+                Category = category;
             }
             return Page();
         }

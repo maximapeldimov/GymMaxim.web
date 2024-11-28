@@ -20,7 +20,22 @@
                 <span asp-validation-for="Activity.ActivityName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Activity.TrainerID" class="control-label"></label>
+                <label asp-for="Activity.ActivityType" class="control-label"></label>
+                <input asp-for="Activity.ActivityType" class="form-control" />
+                <span asp-validation-for="Activity.ActivityType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity.Price" class="control-label"></label>
+                <input asp-for="Activity.Price" class="form-control" />
+                <span asp-validation-for="Activity.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity.WorkDays" class="control-label"></label>
+                <input asp-for="Activity.WorkDays" class="form-control" />
+                <span asp-validation-for="Activity.WorkDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity.Trainer" class="control-label"></label>
                 <select asp-for="Activity.TrainerID" class="form-control" asp-items="ViewBag.TrainerID"></select>
                 <span asp-validation-for="Activity.TrainerID" class="text-danger"></span>
             </div>
