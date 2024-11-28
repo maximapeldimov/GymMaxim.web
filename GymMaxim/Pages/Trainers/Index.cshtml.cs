@@ -21,9 +21,16 @@ namespace GymMaxim.Pages.Trainers
 
         public IList<Trainer> Trainer { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string SearchString)
         {
-            Trainer = await _context.Trainers.ToListAsync();
+            IQueryable<Trainer> TrainersIQ = from s in _context.Trainers select s;
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                TrainersIQ = TrainersIQ.Where(s => s.LastName.Contains(SearchString) || s.FirstName.Contains(SearchString));
+            }
+
+            Trainer = await TrainersIQ.ToListAsync();
+            //Trainer = await _context.Trainers.ToListAsync();
         }
     }
 }

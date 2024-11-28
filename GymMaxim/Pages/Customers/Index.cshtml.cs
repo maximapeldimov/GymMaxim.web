@@ -21,10 +21,19 @@ namespace GymMaxim.Pages.Customers
 
         public IList<Customer> Customer { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string SearchString)
         {
+            IQueryable<Customer> CustomersIQ = from s in _context.Customers select s;
+            if(!string.IsNullOrEmpty(SearchString) )
+            {
+                CustomersIQ = CustomersIQ.Where(s => s.LastName.Contains(SearchString) || s.FirstName.Contains(SearchString));
+            }
+
+            Customer = await CustomersIQ.ToListAsync();
             Customer = await _context.Customers
-                .Include(c => c.Category).ToListAsync();
+                .Include(e => e.Category).ToListAsync();
+
+
         }
     }
 }

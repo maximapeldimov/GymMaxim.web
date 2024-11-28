@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymMaxim.Migrations
 {
     [DbContext(typeof(GymContext))]
-    [Migration("20241128114725_AfterGYMaxim")]
-    partial class AfterGYMaxim
+    [Migration("20241128160937_afterGYMaxin")]
+    partial class afterGYMaxin
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

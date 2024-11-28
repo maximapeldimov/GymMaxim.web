@@ -21,11 +21,18 @@ namespace GymMaxim.Pages.Enrollments
 
         public IList<Enrollment> Enrollment { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string SearchString)
         {
+            IQueryable<Enrollment> EnrollmentsIQ = from s in _context.Enrollments select s;
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                EnrollmentsIQ = EnrollmentsIQ.Where(s => s.Customer.IdentityCard.Contains(SearchString));
+            }
+
+            Enrollment = await EnrollmentsIQ.ToListAsync();
             Enrollment = await _context.Enrollments
                 .Include(e => e.Activity)
-                .Include(e => e.Customer).ToListAsync();
+               .Include(e => e.Customer).ToListAsync();
         }
     }
 }
