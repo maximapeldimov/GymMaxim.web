@@ -29,10 +29,11 @@ namespace GymMaxim.Pages.Enrollments
                 EnrollmentsIQ = EnrollmentsIQ.Where(s => s.Customer.IdentityCard.Contains(SearchString));
             }
 
-            Enrollment = await EnrollmentsIQ.ToListAsync();
-            Enrollment = await _context.Enrollments
-                .Include(e => e.Activity)
+            Enrollment = await EnrollmentsIQ.Include(e => e.Activity)
                .Include(e => e.Customer).ToListAsync();
+            //Enrollment = await _context.Enrollments
+               // .Include(e => e.Activity)
+              // .Include(e => e.Customer).ToListAsync();
         }
     }
 }

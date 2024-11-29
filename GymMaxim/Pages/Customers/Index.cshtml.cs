@@ -29,9 +29,9 @@ namespace GymMaxim.Pages.Customers
                 CustomersIQ = CustomersIQ.Where(s => s.LastName.Contains(SearchString) || s.FirstName.Contains(SearchString));
             }
 
-            Customer = await CustomersIQ.ToListAsync();
-            Customer = await _context.Customers
-                .Include(e => e.Category).ToListAsync();
+            Customer = await CustomersIQ.Include(e => e.Category).ToListAsync();
+           // Customer = await _context.Customers
+             //   .Include(e => e.Category).ToListAsync();
 
 
         }
