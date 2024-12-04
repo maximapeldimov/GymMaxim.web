@@ -31,8 +31,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Customer.Gender" class="control-label"></label>
-                <input asp-for="Customer.Gender" class="form-control" />
-                <span asp-validation-for="Customer.Gender" class="text-danger"></span>
+                <select asp-for="Customer.Gender" class="form-control" asp-items="ViewBag.Gender">
+                    <option>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
             </div>
             <div class="form-group">
                 <label asp-for="Customer.Email" class="control-label"></label>
