@@ -29,7 +29,7 @@ namespace GymMaxim.Pages.Enrollments
                 return NotFound();
             }
 
-            var enrollment = await _context.Enrollments.FirstOrDefaultAsync(m => m.EnrollmentID == id);
+            var enrollment = await _context.Enrollments.Include(c=> c.Customer).Include(d=> d.Activity).FirstOrDefaultAsync(m => m.EnrollmentID == id);
 
             if (enrollment == null)
             {

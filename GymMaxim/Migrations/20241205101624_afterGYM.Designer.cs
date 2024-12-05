@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymMaxim.Migrations
 {
     [DbContext(typeof(GymContext))]
-    [Migration("20241204122735_afterGYM")]
+    [Migration("20241205101624_afterGYM")]
     partial class afterGYM
     {
         /// <inheritdoc />

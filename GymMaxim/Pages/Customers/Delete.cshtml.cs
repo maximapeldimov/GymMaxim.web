@@ -29,7 +29,7 @@ namespace GymMaxim.Pages.Customers
                 return NotFound();
             }
 
-            var customer = await _context.Customers.FirstOrDefaultAsync(m => m.CustomerID == id);
+            var customer = await _context.Customers.Include(c=> c.Category).FirstOrDefaultAsync(m => m.CustomerID == id);
 
             if (customer == null)
             {

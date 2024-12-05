@@ -29,7 +29,7 @@ namespace GymMaxim.Pages.Activities
                 return NotFound();
             }
 
-            var activity = await _context.Activities.FirstOrDefaultAsync(m => m.ActivityID == id);
+            var activity = await _context.Activities.Include(c=> c.Trainer).FirstOrDefaultAsync(m => m.ActivityID == id);
 
             if (activity == null)
             {
