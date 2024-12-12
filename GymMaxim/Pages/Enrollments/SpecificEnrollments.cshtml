@@ -1,0 +1,35 @@
+﻿@page "{customerId:int}"
+@model GymMaxim.Pages.Enrollments.SpecificEnrollmentsModel
+
+<h1>Enrollments for @Model.CustomerName</h1>
+ 
+ <a asp-page="/Customers/Index" class="btn btn-primary">Back To Customers</a>
+       
+@if (Model.Enrollments.Count == 0)
+{
+    <p>No enrollments found for this customer.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Activity</th>
+                <th>Total Price</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var enrollment in Model.Enrollments)
+            {
+                <tr>
+                    <td>@enrollment.Activity.ActivityName</td>
+                    <td>@enrollment.TotalPrice</td>
+                    <td>@enrollment.Date.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    
+}

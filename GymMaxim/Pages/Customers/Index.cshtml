@@ -98,7 +98,8 @@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.CustomerID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.CustomerID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CustomerID">Delete</a>
+                <a asp-page="./Delete" asp-route-id="@item.CustomerID">Delete</a> |
+                <a asp-page="/Enrollments/SpecificEnrollments" asp-route-customerId="@item.CustomerID">View Enrollments</a>
             </td>
         </tr>
 }
