@@ -20,3 +20,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.navbar-custom {
+    background-color: #cccccc !important; /* Custom navbar background color */
+}
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link {
+        color: #ffffff !important; /* White text */
+    }

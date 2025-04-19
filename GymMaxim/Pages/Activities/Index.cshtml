@@ -38,6 +38,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Activity[0].Trainer)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activity[0].Image)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -59,6 +62,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Trainer.FirstName)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                    <img src="@item.Image"
+                         alt="Activity Image"
+                         width="100"
+                         onerror="this.onerror=null;this.src='https://via.placeholder.com/100?text=No+Image';" />
+                </td>
+
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ActivityID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ActivityID">Details</a> |

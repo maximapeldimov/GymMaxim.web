@@ -36,6 +36,9 @@ namespace GymMaxim.Migrations
                     b.Property<string>("ActivityType")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("Price")
                         .HasColumnType("float");
 

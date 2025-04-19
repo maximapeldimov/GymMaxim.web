@@ -11,6 +11,8 @@ namespace GymMaxim.Models
         public string WorkDays { get; set; }
         public int TrainerID { get; set; }
 
+        public string Image { get; set; }
+
         public Trainer Trainer { get; set; }
         
     }

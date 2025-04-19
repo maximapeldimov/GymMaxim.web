@@ -260,6 +260,7 @@
 
   <ItemGroup>
     <Folder Include="bin\Release\net8.0\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

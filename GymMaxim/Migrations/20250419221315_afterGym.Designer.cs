@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymMaxim.Migrations
 {
     [DbContext(typeof(GymContext))]
-    [Migration("20241205101624_afterGYM")]
-    partial class afterGYM
+    [Migration("20250419221315_afterGym")]
+    partial class afterGym
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,9 @@ namespace GymMaxim.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ActivityType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")

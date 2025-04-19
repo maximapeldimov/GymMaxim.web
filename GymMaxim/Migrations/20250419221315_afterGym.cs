@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GymMaxim.Migrations
 {
     /// <inheritdoc />
-    public partial class afterGYM : Migration
+    public partial class afterGym : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -86,7 +86,8 @@ namespace GymMaxim.Migrations
                     ActivityType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
                     WorkDays = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TrainerID = table.Column<int>(type: "int", nullable: false)
+                    TrainerID = table.Column<int>(type: "int", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
