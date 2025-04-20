@@ -63,11 +63,8 @@
                 @Html.DisplayFor(modelItem => item.Trainer.FirstName)
             </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Image)
-                    <img src="@item.Image"
-                         alt="Activity Image"
-                         width="100"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/100?text=No+Image';" />
+               
+                    <img src="~/Images/@item.Image" alt="Image" style="width:150px; height:150px;"/>
                 </td>
 
             <td>
