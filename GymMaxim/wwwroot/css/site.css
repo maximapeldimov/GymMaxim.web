@@ -29,3 +29,18 @@ body {
     .navbar-custom .nav-link {
         color: #ffffff !important; /* White text */
     }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1pr));
+    gap: 20px;
+    padding: 20px;
+    background-color: lightblue;
+}
+
+.grid-item {
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+}
